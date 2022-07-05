@@ -1,15 +1,8 @@
 import "./App.css";
+import Login from "./service/components/login/login";
 
 function App() {
-  return (
-    <>
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"
-      />
-      <h1 className="tc">working!!</h1>;
-    </>
-  );
+  return Login;
 }
 
 export default App;
