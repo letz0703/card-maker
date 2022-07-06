@@ -1,3 +1,3 @@
-const Footer = props =>  return <Footer/>
-
-export default Footer;
+export default function Footer() {
+  return <div>Footer</div>;
+}
