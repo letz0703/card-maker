@@ -1,12 +1,3 @@
-import React from "react";
-//import styles from './header.module.css'
-
-const Header = (props) => {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
-};
-
-export default Header;
+export default function Header() {
+  return <div>Header</div>;
+}

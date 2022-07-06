@@ -1,8 +1,10 @@
-import React from "react";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 
-const Login = (props) => {
+export default function Login({ authService }) {
+  const onLogin = (event) => {
+    authService.login(event.currentTarget.textContent);
+  };
   return (
     <section>
       <Header />
@@ -10,16 +12,18 @@ const Login = (props) => {
         <h1>Login</h1>
         <ul>
           <li>
-            <button>google</button>
+            <button type="submit" onClick={onLogin}>
+              google
+            </button>
           </li>
           <li>
-            <button>github</button>
+            <button type="submit" onClick={onLogin}>
+              github
+            </button>
           </li>
         </ul>
       </section>
       <Footer />
     </section>
   );
-};
-
-export default Login;
+}
