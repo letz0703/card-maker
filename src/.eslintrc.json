@@ -2,20 +2,21 @@
   "env": {
     "browser": true,
     "es2021": true,
-    "jest": true
+    "jest": false
   },
   "extends": [
-    "react-app",
-    "react-app/jest",
-    "plugin:react/recommended",
-    "airbnb",
-    "prettier"
+    "eslint:recommended",
+    "react-app"
+    // "react-app/jest",
+    // "plugin:react/recommended",
+    // "airbnb",
+    // "prettier"
   ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": "latest",
+    "ecmaVersion": 2017,
     "sourceType": "module"
   },
   "plugins": ["react", "prettier"],
@@ -27,6 +28,13 @@
     "react/jsx-uses-react": ["off"],
     "react/jsx-props-no-spreading": ["warn"],
     "no-shadow": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "semi": ["error", "always"],
+    "curly": ["error", "all"],
+    "consistent-this": ["error", "that"],
+    "no-console": 0,
+    "no-unused-vars": 0
   }
 }
