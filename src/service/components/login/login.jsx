@@ -1,5 +1,5 @@
 import Footer from "../footer/footer";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../header/header";
 import {
   createUserWithEmailAndPassword,
@@ -8,8 +8,10 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase";
+import { useHistory } from "react-router-dom";
 
-export default function Login({ authService }) {
+const Login = ({ authService }) => {
+  const history = useHistory();
   const [registerEmail, setRegisterEmail] = useState();
   const [registerPassword, setRegisterPassword] = useState();
   const [user, setUser] = useState({});
@@ -107,18 +109,16 @@ export default function Login({ authService }) {
         <h1>Login</h1>
         <ul>
           <li>
-            <button type="submit" onClick={onLogin}>
-              google
-            </button>
+            <button onClick={onLogin}>google</button>
           </li>
           <li>
-            <button type="submit" onClick={onLogin}>
-              github
-            </button>
+            <button onClick={onLogin}>github</button>
           </li>
-        </ul>
+        </ul>{" "}
+        history = useHistory
       </section>
       <Footer />
     </section>
   );
-}
+};
+export default Login;
