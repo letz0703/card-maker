@@ -1,6 +1,8 @@
-@value makerGreen, makerBlack, makerWhite from "../../common/colors.css";
+@value makerGreen, makerBlack, makerWhite from '../../common/colors.css';
+
 .header {
   width: 100%;
+  // text-align: center;
   padding: 1.5em;
   background-color: makerGreen;
   position: relative;

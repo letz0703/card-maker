@@ -5,7 +5,7 @@
     {
       "label": "new react folder and files",
 
-      "command": "mkdir ${input:dirName} && touch '${input:dirName}/${input:dirName}.' '${input:dirName}/${input:dirName}.styles.scss'",
+      "command": "mkdir ${input:dirName} && touch '${input:dirName}/${input:dirName}.jsx' '${input:dirName}/${input:dirName}.styles.scss'",
 
       "type": "shell",
       "problemMatcher": [],
