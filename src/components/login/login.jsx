@@ -1,50 +1,32 @@
 import React, { useEffect, useState, useContext } from "react";
-import { UserContext } from "../../common/user_store";
+import UserStore, { UserContext } from "../../common/user_store";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import styles from "./login.module.css";
 import { useNavigate, useLocation } from "react-router-dom";
+import Maker from "../maker/maker";
 
 const Login = ({ authService }) => {
-  // const UserInfo = useContext();
-  const [userId, setUserId] = useState("");
   const UserContext = React.createContext({
-    UserId: "",
+    userId: "",
   });
 
-  const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
-
-  // const navigate = useNavigate();
 
   const onLogin = (event) => {
     const gotoMaker = (userId) => {
-      return (
-        <UserContext.Provider value={userId}>
-          {/* "Hi" // setUserId(userId); // console.log(userId); navigate("/maker") */}
-        </UserContext.Provider>
-      );
-      // navigate("/maker");
-      // const setId = (userId) => {
-      //   const [userId, setUserId] = useState(userId);
-      // };
+      console.log(userId);
+      // return <Maker />;
     };
 
     authService //
       .login(event.currentTarget.textContent)
       .then((response) => {
-        // console.log(response.user.uid);
-        // setId(userId);
         const userId = response.user.uid;
         gotoMaker(userId);
       });
-    // .then((data) => gotoMaker(data.user.userId));
-    // .then(console.log);
   };
+
   return (
     <section className={styles.login}>
       <Header />

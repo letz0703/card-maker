@@ -1,15 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../common/user_store";
-//import styles from './maker.module.css'
+import UserStore, { UserContext } from "../../common/user_store";
 
-const Maker = ({ state }) => {
-  const context = useContext(UserContext);
-  console.log(state);
+const Maker = () => {
   return (
-    <>
-      <h1>Maker</h1>
-      <div></div>
-    </>
+    <UserStore.Consumer>{(userId) => <h1>{userId}</h1>}</UserStore.Consumer>
   );
 };
 
