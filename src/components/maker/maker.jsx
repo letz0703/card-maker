@@ -1,6 +1,11 @@
-import React from "react";
-//import styles from './maker.module.css'
+import React, { useContext, useState, useEffect } from "react";
+import UserStore, { UserContext } from "../../common/user_store";
+import { useLocation } from "react-router";
 
-const Maker = (props) => <h1>Maker</h1>;
+const Maker = () => {
+  const { state } = useLocation();
+  alert(state);
+  return <h1>Maker</h1>;
+};
 
 export default Maker;
