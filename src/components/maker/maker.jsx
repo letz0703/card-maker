@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { UserContext } from "../../common/user_store";
 //import styles from './maker.module.css'
 
-const Maker = (props) => <h1>Maker</h1>;
+const Maker = ({ state }) => {
+  const context = useContext(UserContext);
+  console.log(state);
+  return (
+    <>
+      <h1>Maker</h1>
+      <div></div>
+    </>
+  );
+};
 
 export default Maker;
