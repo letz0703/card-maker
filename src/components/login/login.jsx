@@ -19,31 +19,17 @@ const Login = ({ authService }) => {
     console.log(location);
   }, [location]);
 
-  // const navigate = useNavigate();
-
   const onLogin = (event) => {
     const gotoMaker = (userId) => {
-      return (
-        <UserContext.Provider value={userId}>
-          {/* "Hi" // setUserId(userId); // console.log(userId); navigate("/maker") */}
-        </UserContext.Provider>
-      );
-      // navigate("/maker");
-      // const setId = (userId) => {
-      //   const [userId, setUserId] = useState(userId);
-      // };
+      return <UserContext.Provider value={userId}></UserContext.Provider>;
     };
 
     authService //
       .login(event.currentTarget.textContent)
       .then((response) => {
-        // console.log(response.user.uid);
-        // setId(userId);
         const userId = response.user.uid;
         gotoMaker(userId);
       });
-    // .then((data) => gotoMaker(data.user.userId));
-    // .then(console.log);
   };
   return (
     <section className={styles.login}>

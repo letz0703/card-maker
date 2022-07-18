@@ -8,7 +8,6 @@ const Maker = ({ state }) => {
   return (
     <>
       <h1>Maker</h1>
-      <div></div>
     </>
   );
 };
