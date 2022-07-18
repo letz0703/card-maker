@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "firebase/compat";
 import firebaseApp from "./firebase";
 
 class AuthService {
