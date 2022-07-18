@@ -10,13 +10,12 @@ const Login = ({ authService }) => {
   const UserContext = React.createContext({
     userId: "",
   });
-  const [uid, setUid] = useState("");
 
   const navigate = useNavigate();
 
   const onLogin = (event) => {
     const gotoMaker = (userId) => {
-      navigate("/maker", { userId });
+      navigate("/maker", { state: userId });
     };
 
     authService //
