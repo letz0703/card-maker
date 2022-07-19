@@ -1,11 +1,30 @@
 import React, { useContext, useState, useEffect } from "react";
-import UserStore, { UserContext } from "../../common/user_store";
-import { useLocation } from "react-router";
-
-const Maker = () => {
+import { useNavigate, useLocation } from "react-router";
+import styles from "./maker.module.css";
+import Headers from "../header/header";
+import Footer from "../footer/footer";
+const Maker = ({ authService }) => {
   const { state } = useLocation();
   // alert(state);
-  return <h1>Maker</h1>;
+  const navigate = useNavigate();
+  const onLogout = () => {
+    authService.onLogout();
+  };
+
+  useEffect(() => {
+    authService.onAuthChange((user) => {
+      !user && navigate("/");
+    });
+  });
+
+  return (
+    <>
+      <section className={styles.maker}>
+        <Headers onLogout={onLogout} />
+        <Footer />
+      </section>
+    </>
+  );
 };
 
 export default Maker;
