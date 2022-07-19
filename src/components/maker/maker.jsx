@@ -4,7 +4,7 @@ import { useLocation } from "react-router";
 
 const Maker = () => {
   const { state } = useLocation();
-  alert(state);
+  // alert(state);
   return <h1>Maker</h1>;
 };
 

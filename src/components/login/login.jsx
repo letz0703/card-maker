@@ -26,6 +26,13 @@ const Login = ({ authService }) => {
       });
   };
 
+  useEffect(() => {
+    authService //
+      .onAuthChange((user) => {
+        user && navigate("/maker", { state: user.uid });
+      });
+  });
+
   return (
     <section className={styles.login}>
       <Header />
