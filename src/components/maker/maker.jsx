@@ -20,7 +20,7 @@ const Maker = ({ authService }) => {
   return (
     <>
       <section className={styles.maker}>
-        <Headers onLogout={onLogout} />
+        <Headers className="styles.container" onLogout={onLogout} />
         <Footer />
       </section>
     </>
