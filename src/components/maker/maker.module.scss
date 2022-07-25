@@ -1,6 +1,8 @@
+@value mediaQuery from '../../common/size.css'
+
 .maker {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -9,6 +11,10 @@
 .container {
   display: flex;
   flex: 1;
-  // justify-content: center;
-  // align-items: stretch;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .container {
+    flex-direction: column;
+  }
 }
