@@ -7,7 +7,41 @@ import Editor from "../editor/editor";
 import Preview from "../preview/preview";
 
 const Maker = ({ authService }) => {
-  const { state } = useLocation();
+  const [cards, setCards] = useState([
+    {
+      id: 1,
+      name: "Card 1",
+      company: "letz",
+      theme: "red",
+      title: "ceo",
+      email: "rainskiss.com",
+      message: "go for it",
+      fileName: "",
+      fileUrl: "ellie.jpg",
+    },
+    {
+      id: 2,
+      name: "Card 1",
+      company: "letz",
+      theme: "red",
+      title: "ceo",
+      email: "rainskiss.com",
+      message: "go for it",
+      fileName: "",
+      fileUrl: "ellie.jpg",
+    },
+    {
+      id: 3,
+      name: "Card 1",
+      company: "letz",
+      theme: "red",
+      title: "ceo",
+      email: "rainskiss.com",
+      message: "go for it",
+      fileName: "",
+      fileUrl: "ellie.jpg",
+    },
+  ]);
   // alert(state);
   const navigate = useNavigate();
   const onLogout = () => {
@@ -25,8 +59,8 @@ const Maker = ({ authService }) => {
       <section className={styles.maker}>
         <Headers className="styles.container" onLogout={onLogout} />
         <div className={styles.container}>
-          <Editor />
-          <Preview />
+          <Editor cards={cards} />
+          <Preview cards={cards} />
         </div>
         <Footer />
       </section>
