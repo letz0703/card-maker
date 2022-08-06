@@ -1,14 +1,38 @@
-@value makerGreen, makerLightGrey from '../../common/colors.css';
+@value makerBlack, makerWhite from '../../common/colors.css';
 
-.editor {
-  flex-basis: 50%;
-  border-right: 1px solid makerLightGrey;
-  padding: 0.5em 2em;
+.form {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  border-top: 1px solid makerBlack;
+  border-left: 1px solid makerBlack;
 }
 
-.title {
+.input,
+.textarea,
+.select,
+.button,
+.fileInput {
+  font-size: 0.8rem;
   width: 100%;
-  text-align: center;
-  margin-bottom: 1em;
-  color: makerGreen;
+  border: 0;
+  padding: 0.5em;
+  border-bottom: 1px solid makerBlack;
+  border-right: 1px solid makerBlack;
+  background: makerWhite;
+}
+
+.input,
+.select {
+  flex: 1 1 30%;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus .button:focus {
+  outline: 0;
+}
+
+.textarea {
+  flex-basis: 100%;
 }
