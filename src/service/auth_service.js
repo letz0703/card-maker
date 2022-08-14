@@ -7,6 +7,10 @@ class AuthService {
     return firebaseApp.auth().signInWithPopup(authProvider);
   }
 
+  onLogout(onLogout) {
+    firebaseApp.auth().signOut();
+  }
+
   onAuthChange(onUserChanged) {
     firebase.auth().onAuthStateChanged((user) => onUserChanged(user));
   }
