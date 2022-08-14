@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.module.css";
-import App from "./app";
+import App from "./App";
 import AuthService from "./service/auth_service";
 import UserInfo, { UserContext } from "./common/user_store";
 
