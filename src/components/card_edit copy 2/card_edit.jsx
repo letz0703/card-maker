@@ -17,9 +17,9 @@ const CardEdit = ({ card }) => {
         value={company}
       />
       <select className={styles.select} name="theme" value={theme}>
-        <option value="light">light</option>
-        <option value="dark">dard</option>
-        <option value="colorful">colorful</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="colorful">Colorful</option>
       </select>
       <input className={styles.input} type="text" name="title" value={title} />
       <input className={styles.input} type="text" name="email" value={email} />
