@@ -7,9 +7,8 @@ import Editor from "../editor/editor";
 import Preview from "../preview/preview";
 
 const Maker = ({ authService }) => {
-  const [cards, setCards] = useState([
-    {
-      id: 1,
+  const [cards, setCards] = useState({
+    1: {
       name: "Card 1",
       company: "letz",
       theme: "red",
@@ -19,8 +18,7 @@ const Maker = ({ authService }) => {
       fileName: "",
       fileUrl: "ellie.jpg",
     },
-    {
-      id: 2,
+    2: {
       name: "Card 1",
       company: "letz",
       theme: "red",
@@ -30,8 +28,7 @@ const Maker = ({ authService }) => {
       fileName: "",
       fileUrl: "ellie.jpg",
     },
-    {
-      id: 3,
+    3: {
       name: "Card 1",
       company: "letz",
       theme: "red",
@@ -41,7 +38,7 @@ const Maker = ({ authService }) => {
       fileName: "",
       fileUrl: "ellie.jpg",
     },
-  ]);
+  });
   // alert(state);
   const navigate = useNavigate();
   const onLogout = () => {
@@ -59,12 +56,27 @@ const Maker = ({ authService }) => {
     setCards(updated);
   };
 
+  const updateCard = (card) => {
+    // const updated = cards.map((item) => {
+    //   if (card.id === item.id) {
+    //     return m;
+    //   }
+    //   return item;
+    // });
+  };
+  const deleteCard = () => {};
+
   return (
     <>
       <section className={styles.maker}>
         <Headers className="styles.container" onLogout={onLogout} />
         <div className={styles.container}>
-          <Editor cards={cards} addCard={addCard} />
+          <Editor
+            cards={cards}
+            addCard={addCard}
+            updateCard={updateCard}
+            deleteCard={deleteCard}
+          />
           <Preview cards={cards} />
         </div>
         <Footer />

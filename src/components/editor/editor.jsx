@@ -4,14 +4,19 @@ import styles from "./editor.module.css";
 import Card from "../card/card";
 import CardAddForm from "../card_add_form/card_add_form";
 
-const Editor = ({ cards, addCard }) => {
+const Editor = ({ cards, addCard, updateCard, deleteCard }) => {
   //from maker.jsx
   return (
     <section className={styles.editor}>
       <h1 className={styles.title}>Card Maker</h1>
-      {cards.map((card) => (
+      {Object.keys(cards).map((key) => (
         <>
-          <CardEdit key={card.id} card={card} />
+          <CardEdit
+            key={key}
+            card={cards[key]}
+            updateCard={updateCard}
+            deleteCard={deleteCard}
+          />
           <CardAddForm onAdd={addCard} />
         </>
       ))}
