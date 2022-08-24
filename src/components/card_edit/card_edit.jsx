@@ -25,7 +25,9 @@ const CardEdit = ({ card, updateCard, deleteCard }) => {
     });
   };
 
-  const onSubmit = () => {};
+  const onSubmit = () => {
+    deleteCard(card);
+  };
   return (
     <form className={styles.form}>
       <input

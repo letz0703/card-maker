@@ -51,20 +51,26 @@ const Maker = ({ authService }) => {
     });
   });
 
-  const addCard = (card) => {
-    const updated = [...cards, card];
-    setCards(updated);
+  // const addCard = (card) => {
+  //   const updated = [...cards, card];
+  //   setCards(updated);
+  // };
+
+  const createOrUpdateCard = (card) => {
+    setCards((cards) => {
+      const updated = { ...cards };
+      updated[card.id] = card;
+      return updated;
+    });
   };
 
-  const updateCard = (card) => {
-    // const updated = cards.map((item) => {
-    //   if (card.id === item.id) {
-    //     return m;
-    //   }
-    //   return item;
-    // });
+  const deleteCard = (card) => {
+    setCards((cards) => {
+      const updated = { ...cards };
+      delete updated[card.id];
+      return updated;
+    });
   };
-  const deleteCard = () => {};
 
   return (
     <>
@@ -73,8 +79,8 @@ const Maker = ({ authService }) => {
         <div className={styles.container}>
           <Editor
             cards={cards}
-            addCard={addCard}
-            updateCard={updateCard}
+            addCard={createOrUpdateCard}
+            updateCard={createOrUpdateCard}
             deleteCard={deleteCard}
           />
           <Preview cards={cards} />
