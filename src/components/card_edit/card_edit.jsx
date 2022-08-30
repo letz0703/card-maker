@@ -16,9 +16,13 @@ const CardEdit = ({ card, updateCard, deleteCard }) => {
 
   const onChange = (eve) => {
     if (eve.currentTarget == null) {
-      return;
+      const onChange = (eve) => {
+        return;
+      };
     }
+
     eve.preventDefault();
+
     updateCard({
       ...card,
       [eve.currentTarget.name]: eve.currentTarget.value,
@@ -28,6 +32,7 @@ const CardEdit = ({ card, updateCard, deleteCard }) => {
   const onSubmit = () => {
     deleteCard(card);
   };
+
   return (
     <form className={styles.form}>
       <input
