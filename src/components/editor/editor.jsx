@@ -4,7 +4,7 @@ import styles from "./editor.module.css";
 import Card from "../card/card";
 import CardAddForm from "../card_add_form/card_add_form";
 
-const Editor = ({ cards, addCard, updateCard, deleteCard }) => {
+const Editor = ({ FileInput, cards, addCard, updateCard, deleteCard }) => {
   //from maker.jsx
   return (
     <section className={styles.editor}>
@@ -12,12 +12,13 @@ const Editor = ({ cards, addCard, updateCard, deleteCard }) => {
       {Object.keys(cards).map((key) => (
         <>
           <CardEdit
+            FileInput={FileInput}
             key={key}
             card={cards[key]}
             updateCard={updateCard}
             deleteCard={deleteCard}
           />
-          <CardAddForm onAdd={addCard} />
+          <CardAddForm onAdd={addCard} FileInput={FileInput} />
         </>
       ))}
     </section>

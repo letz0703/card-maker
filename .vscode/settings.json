@@ -12,6 +12,19 @@
         }
       },
       {
+        "scope": "entity.name.tag.js.jsx",
+        "settings": {
+          "foreground": "#4f8b00"
+        }
+      },
+      {
+        "scope": "entity.name.function.js.jsx",
+        "settings": {
+          "foreground": "#fe7207"
+        }
+      },
+
+      {
         "scope": "variable.other.readwrite.alias.js.jsx",
         "settings": {
           "foreground": "#8482D1"
