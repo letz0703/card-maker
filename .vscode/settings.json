@@ -14,13 +14,13 @@
       {
         "scope": "entity.name.tag.js.jsx",
         "settings": {
-          "foreground": "#4f8b00"
+          "foreground": "#18A856"
         }
       },
       {
         "scope": "entity.name.function.js.jsx",
         "settings": {
-          "foreground": "#fe7207"
+          "foreground": "#fa84cc"
         }
       },
 
