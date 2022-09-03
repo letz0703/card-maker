@@ -11,10 +11,12 @@ const CardAddForm = ({ FileInput, onAdd }) => {
   const emailRef = useRef();
   const messageRef = useRef();
   const [file, setFile] = useState({ fileName: null, fileURL: null });
+
   const onFileChange = (file) => {
-    // setFile({ fileName: file.name, fileURL: file.url });
-    setFile({ fileName: "tfile", fileURL: "turl" });
-    // console.log(file);
+    setFile({
+      fileName: file.name,
+      fileURL: file.url,
+    });
   };
 
   const onSubmit = (eve) => {
@@ -31,7 +33,7 @@ const CardAddForm = ({ FileInput, onAdd }) => {
       fileURL: file.fileURL || "",
     };
     formRef.current.reset();
-    // console.log(card);
+    setFile({ fileName: null, fileURL: null });
     onAdd(card);
   };
   return (
@@ -81,7 +83,7 @@ const CardAddForm = ({ FileInput, onAdd }) => {
         placeholder="Message"
       />
       <div className={styles.fileInput}>
-        <FileInput onFileChange={onFileChange} />
+        <FileInput name={file.fileName} onFileChange={onFileChange} />
       </div>
       <Button name="Add" onClick={onSubmit} />
     </form>

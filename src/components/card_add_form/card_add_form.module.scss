@@ -36,7 +36,10 @@
 
 .fileInput {
   padding: 0;
+  display: flex;
+  justify-content: center;
   flex: 1 1 50%;
+  align-items: center;
 }
 
 .textarea {

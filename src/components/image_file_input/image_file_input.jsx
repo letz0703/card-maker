@@ -1,9 +1,10 @@
 import React from "react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styles from "./image_file_input.module.css";
 
 // const ImageFileInput = (props) => {
 const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef();
   const onClick = (eve) => {
     eve.preventDefault();
@@ -11,8 +12,10 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
   };
   const onChange = async (eve) => {
     // console.log(eve.target.files[0]);
+    setIsLoading(true);
     const uploaded = await imageUploader.upload(eve.target.files[0]);
-    console.log(uploaded);
+    setIsLoading(false);
+
     onFileChange({
       name: uploaded.original_filename,
       url: uploaded.url,
@@ -29,9 +32,14 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
         className={styles.input}
         onChange={onChange}
       />
-      <button className={styles.button} onClick={onClick}>
-        {name || "파일선택"}
-      </button>
+      {/* {!isLoading ? ( */}
+      {false ? (
+        <button className={styles.button} onClick={onClick}>
+          {name || "파일선택"}
+        </button>
+      ) : (
+        <div className={styles.loading}></div>
+      )}
     </div>
   );
 };
