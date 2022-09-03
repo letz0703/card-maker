@@ -10,8 +10,9 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
     inputRef.current.click();
   };
   const onChange = async (eve) => {
-    console.log(eve.target.files[0]);
+    // console.log(eve.target.files[0]);
     const uploaded = await imageUploader.upload(eve.target.files[0]);
+    console.log(uploaded);
     onFileChange({
       name: uploaded.original_filename,
       url: uploaded.url,

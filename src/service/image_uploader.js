@@ -1,16 +1,16 @@
 class ImageUploader {
   async upload(file) {
-    return "file";
-    const data = new FormData();
-    data.append("file", file);
-    data.append("upload_preset", "icanmart");
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "bz1rcyrp");
     const res = await fetch(
-      "https://api.cloudinary.com/v1_1/drqni4rhj/upload",
+      "https://api.cloudinary.com/v1_1/icanmart/image/upload", //
       {
         method: "POST",
-        body: data,
+        body: formData,
       },
     );
+
     return await res.json();
   }
 }

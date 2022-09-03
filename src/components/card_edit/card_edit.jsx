@@ -13,6 +13,14 @@ const CardEdit = ({ FileInput, card, updateCard, deleteCard }) => {
   const { name, company, title, email, message, theme, fileName, fileURL } =
     card;
 
+  const onFileChange = (file) => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  };
+
   const onChange = (eve) => {
     if (eve.currentTarget == null) {
       const onChange = (eve) => {
@@ -79,7 +87,7 @@ const CardEdit = ({ FileInput, card, updateCard, deleteCard }) => {
         value={message}
       />
       <div className={styles.fileInput}>
-        <FileInput />
+        <FileInput onFileChange={onFileChange} />
       </div>
       <Button name="Delete" onClick={onSubmit} />
     </form>

@@ -1,10 +1,16 @@
 {
   "workbench.colorTheme": "One Monokai",
   "workbench.colorCustomizations": {
-    "tab.activeBackground": "#87c10096"
+    "tab.activeBackground": "#015B91"
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
+      {
+        "scope": "entity.name.function.js",
+        "settings": {
+          "foreground": "#f1a4b6"
+        }
+      },
       {
         "scope": "variable.other.readwrite.js",
         "settings": {
@@ -14,7 +20,7 @@
       {
         "scope": "entity.name.tag.js.jsx",
         "settings": {
-          "foreground": "#18A856"
+          "foreground": "#4bee29"
         }
       },
       {
