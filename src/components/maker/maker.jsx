@@ -1,45 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router";
+import { AppContext } from "../../App";
+import { useNavigate } from "react-router";
 import styles from "./maker.module.css";
 import Headers from "../header/header";
 import Footer from "../footer/footer";
 import Editor from "../editor/editor";
 import Preview from "../preview/preview";
 
-const Maker = ({ FileInput, authService }) => {
-  const [cards, setCards] = useState({
-    1: {
-      name: "Card 1",
-      company: "letz",
-      theme: "red",
-      title: "ceo",
-      email: "rainskiss.com",
-      message: "go for it",
-      fileName: "",
-      fileUrl: "ellie.jpg",
-    },
-    2: {
-      name: "Card 1",
-      company: "letz",
-      theme: "red",
-      title: "ceo",
-      email: "rainskiss.com",
-      message: "go for it",
-      fileName: "",
-      fileUrl: "ellie.jpg",
-    },
-    3: {
-      name: "Card 1",
-      company: "letz",
-      theme: "red",
-      title: "ceo",
-      email: "rainskiss.com",
-      message: "go for it",
-      fileName: "",
-      fileUrl: "ellie.jpg",
-    },
-  });
-  // alert(state);
+const Maker = ({ FileInput, authService, cardRepository }) => {
+  const store = useContext(AppContext);
+  const [cards, setCards] = useState({});
   const navigate = useNavigate();
   const onLogout = () => {
     authService.onLogout();
@@ -47,14 +17,10 @@ const Maker = ({ FileInput, authService }) => {
 
   useEffect(() => {
     authService.onAuthChange((user) => {
-      !user && navigate("/");
+      user ? store.setUserId(user.uid) : navigate("/");
+      // if(!user) {history.push('/';)}
     });
   });
-
-  // const addCard = (card) => {
-  //   const updated = [...cards, card];
-  //   setCards(updated);
-  // };
 
   const createOrUpdateCard = (card) => {
     setCards((cards) => {
@@ -62,6 +28,7 @@ const Maker = ({ FileInput, authService }) => {
       updated[card.id] = card;
       return updated;
     });
+    cardRepository.saveCard(store.userId, card);
   };
 
   const deleteCard = (card) => {
