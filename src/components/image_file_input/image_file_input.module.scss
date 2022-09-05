@@ -14,6 +14,7 @@
 
 .button {
   width: 100%;
+  height: 100%;
   background-color: makerLightGrey;
   font-weight: bold;
   cursor: pointer;
@@ -29,8 +30,8 @@
   width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
-  border: 2px solid silver;
-  border-top: 2px solid red;
+  border: 3px solid silver;
+  border-top: 3px solid red;
   animation: spin 1.2s linear infinite; //alternate
 }
 
@@ -41,4 +42,11 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.grey {
+  // background-color: grey;
+}
+.pink {
+  background-color: pink;
 }

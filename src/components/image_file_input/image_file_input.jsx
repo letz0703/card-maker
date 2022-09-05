@@ -32,9 +32,11 @@ const ImageFileInput = ({ imageUploader, name, onFileChange }) => {
         className={styles.input}
         onChange={onChange}
       />
-      {/* {!isLoading ? ( */}
-      {false ? (
-        <button className={styles.button} onClick={onClick}>
+      {!isLoading ? (
+        <button
+          className={`${styles.button} ${name ? styles.pink : styles.grey}`}
+          onClick={onClick}
+        >
           {name || "파일선택"}
         </button>
       ) : (
