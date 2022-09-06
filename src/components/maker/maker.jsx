@@ -9,7 +9,19 @@ import Preview from "../preview/preview";
 
 const Maker = ({ FileInput, authService, cardRepository }) => {
   const store = useContext(AppContext);
-  const [cards, setCards] = useState({});
+  const [cards, setCards] = useState({
+    1: {
+      id: "1",
+      name: "mani",
+      company: "icanmart",
+      theme: "dark",
+      title: "ceo",
+      email: "icanmart@gmail.com",
+      message: "one for all, all for one",
+      fileName: "",
+      fileURL: "",
+    },
+  });
   const navigate = useNavigate();
   const onLogout = () => {
     authService.onLogout();
@@ -37,6 +49,8 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       delete updated[card.id];
       return updated;
     });
+
+    cardRepository.removeCard(store.userId, card);
   };
 
   return (
