@@ -1,6 +1,14 @@
 import firebaseApp from "./firebase";
 
 class CardRepository {
+  syncCard = (userId, onUpdate) => {
+    const addressUserIdCard = `${userId}/cards`;
+    const refSyncCard = firebaseApp.database().ref(addressUserIdCard);
+    refSyncCard.on("value", (snapshot) => {
+      const value = snapshot.val();
+      value && onUpdate(value);
+    });
+  };
   saveCard = (userId, card) => {
     firebaseApp
       .database() //
