@@ -26,6 +26,15 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   const onLogout = () => {
     authService.onLogout();
   };
+  useEffect(() => {
+    if (!store.uuid) {
+      return;
+    }
+    const stopSync = cardRepository.syncCards(store.uuid, (cards) => {
+      setCards(cards);
+    });
+    return () => stopSync();
+  }, [store.uuid]);
 
   useEffect(() => {
     authService.onAuthChange((user) => {
@@ -40,7 +49,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       updated[card.id] = card;
       return updated;
     });
-    cardRepository.saveCard(store.userId, card);
+    cardRepository.saveCard(store.uuid, card);
   };
 
   const deleteCard = (card) => {
@@ -50,7 +59,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       return updated;
     });
 
-    cardRepository.removeCard(store.userId, card);
+    cardRepository.removeCard(store.store.uuid, card);
   };
 
   return (
