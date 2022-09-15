@@ -22,26 +22,28 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       fileURL: "",
     },
   });
+  const userInitialId = store.uid;
+  const [userId, setUserId] = useState(`${userInitialId}`);
   const navigate = useNavigate();
   const onLogout = () => {
     authService.onLogout();
   };
   useEffect(() => {
-    if (!store.uuid) {
+    if (!userId) {
       return;
     }
-    const stopSync = cardRepository.syncCards(store.uuid, (cards) => {
+    const stopSync = cardRepository.syncCard(userId, (cards) => {
       setCards(cards);
     });
     return () => stopSync();
-  }, [store.uuid]);
+  }, [userId, cardRepository]);
 
   useEffect(() => {
     authService.onAuthChange((user) => {
-      user ? store.setUserId(user.uid) : navigate("/");
+      user ? setUserId(user.uid) : navigate("/");
       // if(!user) {history.push('/';)}
     });
-  });
+  }, [authService, userId]);
 
   const createOrUpdateCard = (card) => {
     setCards((cards) => {
@@ -49,7 +51,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       updated[card.id] = card;
       return updated;
     });
-    cardRepository.saveCard(store.uuid, card);
+    cardRepository.saveCard(userId, card);
   };
 
   const deleteCard = (card) => {
@@ -59,7 +61,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       return updated;
     });
 
-    cardRepository.removeCard(store.store.uuid, card);
+    cardRepository.removeCard(userId, card);
   };
 
   return (
